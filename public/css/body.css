@@ -18,6 +18,13 @@
       min-height: 100%;
       object-fit: cover;
       z-index: -2;
+      /* Fallback background in case video fails to load */
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    }
+
+    /* Error handling for missing video */
+    .bg-video:not([src]) {
+      display: none;
     }
 
     /* Overlay for readability */
@@ -29,6 +36,8 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
       z-index: -1;
+      /* Ensure overlay shows even if video fails */
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(51, 65, 85, 0.8) 100%);
     }
 
 
