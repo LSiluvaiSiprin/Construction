@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Login Form -->
+  <div class="wrapper" id="login-box">
+    <div class="container">
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <div class="input-box">
+            <input type="text" id="loginEmail" name="email" required>
+            <label>Email</label>
+            <i class="fa fa-user"></i>
+          </div>
+          <div class="input-box">
+            <input type="password" id="loginPassword" name="password" required>
+            <label>Password</label>
+            <i class="fa fa-lock"></i>
+          </div>
+          <button type="submit" class="btn">Login</button>
+          <p class="switch">Don’t have an account? <a href="#" onclick="showSignup()">Sign Up</a></p>
+        </form>
+      </div>
+      <div class="side-box">
+        <img src="image/Under construction-amico.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Form -->
+  <div class="wrapper hidden" id="signup-box">
+    <div class="container">
+      <div class="side-box">
+        <h2>WELCOME!</h2>
+        <p>Create your account to continue</p>
+      </div>
+      <div class="form-box signup">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+          <div class="input-box">
+            <input type="text" id="signupUsername" name="username" required>
+            <label>Username</label>
+            <i class="fa fa-user"></i>
+          </div>
+          <div class="input-box">
+            <input type="email" id="signupEmail" name="email" required>
+            <label>Email</label>
+            <i class="fa fa-envelope"></i>
+          </div>
+          <div class="input-box">
+            <input type="password" id="signupPassword" name="password" required>
+            <label>Password</label>
+            <i class="fa fa-lock"></i>
+          </div>
+          <button type="submit" class="btn">Sign Up</button>
+          <p class="switch">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
