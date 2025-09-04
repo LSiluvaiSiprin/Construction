@@ -3,13 +3,22 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const path = require("path");
+const rateLimit = require("express-rate-limit");
 
 // Load environment variables
 dotenv.config();
 
 const app = express();
 
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: { msg: "Too many requests, please try again later." }
+});
+
 // Middleware
+app.use(limiter);
 app.use(cors());
 app.use(express.json());
 
@@ -24,6 +33,11 @@ mongoose.connect(process.env.MONGO_URI, {
 // Routes
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
+
+// Health check endpoint
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "OK", timestamp: new Date().toISOString() });
+});
 
 // 👉 Serve frontend (index.html & main.html)
 app.use(express.static(path.join(__dirname, "public")));
